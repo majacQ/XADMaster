@@ -19,6 +19,7 @@
  * MA 02110-1301  USA
  */
 #import "XADMacArchiveParser.h"
+#import "XADZipParserStructures.h"
 
 @interface XADZipParser:XADMacArchiveParser
 {
@@ -36,6 +37,7 @@
 -(void)parseWithSeparateMacForks;
 -(void)parseWithCentralDirectoryAtOffset:(off_t)centraloffs zip64Offset:(off_t)zip64offs;
 -(off_t)offsetForVolume:(int)disk offset:(off_t)offset;
+-(void)findCentralDirectoryRecordOffset:(off_t *)centrOffset zip64Offset:(off_t *)zip64offs;
 
 -(void)parseWithoutCentralDirectory;
 -(void)findEndOfStreamMarkerWithZip64Flag:(BOOL)zip64 uncompressedSizePointer:(off_t *)uncompsizeptr
@@ -46,6 +48,7 @@ compressedSizePointer:(off_t *)compsizeptr CRCPointer:(uint32_t *)crcptr;
 //-(void)findNoSeekMarkerForDictionary:(NSMutableDictionary *)dict;
 -(NSDictionary *)parseZipExtraWithLength:(int)length nameData:(NSData *)namedata
 uncompressedSizePointer:(off_t *)uncompsizeptr compressedSizePointer:(off_t *)compsizeptr;
+-(XADZipParserCentralDirectoryRecord)readCentralDirectoryRecord;
 
 -(void)addZipEntryWithSystem:(int)system
 extractVersion:(int)extractversion

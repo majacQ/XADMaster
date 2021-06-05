@@ -1,3 +1,4 @@
+  <<<<<<< develop
 matrix:
   include:
     - os: linux
@@ -14,3 +15,12 @@ install:
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then xcodebuild test -project XADMaster.xcodeproj -scheme XADMasterTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter` ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make -f Makefile.linux; fi
+  =======
+osx_image: xcode9.4
+language: objective-c
+install:
+  - gem install xcpretty-travis-formatter
+  - git clone https://github.com/MacPaw/universal-detector.git ../UniversalDetector
+script:
+  - xcodebuild test -project XADMaster.xcodeproj -scheme XADMasterTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
+  >>>>>>> Xcode10-Support

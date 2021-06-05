@@ -1417,8 +1417,11 @@
 		73DA346A206B6BF1006ADB42 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* XADMaster.framework */; };
 		E424FB4721CAE11D00E1C950 /* XADArchiveParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E424FB4621CAE11D00E1C950 /* XADArchiveParserTests.m */; };
 		E424FB4E21CAEC0300E1C950 /* XADZipParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E424FB4D21CAEC0300E1C950 /* XADZipParserTests.m */; };
+  <<<<<<< fix/tun-62
+  =======
 		E46E6296225DC2DE00D44E0A /* XADSFXDetectionParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E46E6295225DC2DE00D44E0A /* XADSFXDetectionParserTests.m */; };
 		E4BB35EF22D8CE7B00EE22CB /* XADZipParserStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BB35EE22D8CE7B00EE22CB /* XADZipParserStructures.h */; };
+  >>>>>>> master
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -2133,8 +2136,11 @@
 		8DC2EF5B0486A6940098B216 /* XADMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XADMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E424FB4621CAE11D00E1C950 /* XADArchiveParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XADArchiveParserTests.m; sourceTree = "<group>"; };
 		E424FB4D21CAEC0300E1C950 /* XADZipParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XADZipParserTests.m; sourceTree = "<group>"; };
+  <<<<<<< fix/tun-62
+  =======
 		E46E6295225DC2DE00D44E0A /* XADSFXDetectionParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XADSFXDetectionParserTests.m; sourceTree = "<group>"; };
 		E4BB35EE22D8CE7B00EE22CB /* XADZipParserStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XADZipParserStructures.h; sourceTree = "<group>"; };
+  >>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3226,8 +3232,11 @@
 				1737CCA9B444F0AF0C3A4456 /* XADRAR5ParserTests.m */,
 				E424FB4621CAE11D00E1C950 /* XADArchiveParserTests.m */,
 				E424FB4D21CAEC0300E1C950 /* XADZipParserTests.m */,
+  <<<<<<< fix/tun-62
+  =======
 				7378D98A21CCD04000A4B11F /* CRCCalculationTests.m */,
 				E46E6295225DC2DE00D44E0A /* XADSFXDetectionParserTests.m */,
+  >>>>>>> master
 			);
 			path = XADMasterTests;
 			sourceTree = "<group>";
@@ -4722,7 +4731,10 @@
 				73DA3468206B6BF1006ADB42 /* XADPlatformOSXTests.m in Sources */,
 				1737C872BD5877C5DFDA3D99 /* XADRAR5ParserTests.m in Sources */,
 				E424FB4E21CAEC0300E1C950 /* XADZipParserTests.m in Sources */,
+  <<<<<<< fix/tun-62
+  =======
 				E46E6296225DC2DE00D44E0A /* XADSFXDetectionParserTests.m in Sources */,
+  >>>>>>> master
 				E424FB4721CAE11D00E1C950 /* XADArchiveParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

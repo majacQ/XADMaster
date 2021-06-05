@@ -50,6 +50,8 @@ typedef struct XADZipParserTestsSUT {
     [self _free:sut];
 }
 
+  <<<<<<< fix/tun-62
+  =======
 - (void)testCentralDirectoryLocationInRecordOffsetBetweenChunks
 {
     for (int offset = -20; offset< 20; offset++) {
@@ -66,6 +68,7 @@ typedef struct XADZipParserTestsSUT {
     }
 }
 
+  >>>>>>> master
 - (void)testCentralDirectoryLocationInLargeFile
 {
     XADZipParserTestsSUT sut = [self _handleWithCDOffset:105 inFileSize:0x10000];
@@ -80,6 +83,25 @@ typedef struct XADZipParserTestsSUT {
     [self _free:sut];
 }
 
+  <<<<<<< fix/tun-62
+// TODO: This would be great if we'll be able to find this in the big file
+//- (void)testCentralDirectoryLocationInVeryLargeFile
+//{
+//    XADZipParserTestsSUT sut = [self _handleWithCDOffset:35 inFileSize:0x1000000];
+//    XADZipParser *parser = sut.parser;
+//
+//    off_t centralRecordOffset = -1;
+//    off_t zip64Offset = -1;
+//    [parser findCentralDirectoryRecordOffset:&centralRecordOffset zip64Offset:&zip64Offset];
+//    XCTAssertEqual(centralRecordOffset, 35);
+//    XCTAssertEqual(zip64Offset, 15);
+//
+//    [self _free:sut];
+//}
+
+#pragma mark - Private
+
+  =======
 - (void)testCentralDirectoryLocationInVeryLargeFile
 {
     XADZipParserTestsSUT sut = [self _handleWithCDOffset:35 inFileSize:0x1000000];
@@ -485,6 +507,7 @@ typedef struct XADZipParserTestsSUT {
     };
 }
 
+  >>>>>>> master
 - (XADZipParserTestsSUT)_handleWithCDOffset:(off_t)cdoffset inFileSize:(off_t)fileSize {
     uint8_t * buffer = malloc(fileSize);
     memset(buffer, 0, fileSize);
@@ -515,9 +538,13 @@ typedef struct XADZipParserTestsSUT {
 }
 
 - (void)_free:(XADZipParserTestsSUT)sut {
+  <<<<<<< fix/tun-62
+    free(sut.buffer);
+  =======
     if (sut.buffer != NULL) {
         free(sut.buffer);
     }
+  >>>>>>> master
 }
 
 @end

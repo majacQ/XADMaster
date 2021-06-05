@@ -117,6 +117,52 @@
 
 -(void)findCentralDirectoryRecordOffset:(off_t *)centrOffset zip64Offset:(off_t *)zip64offs
 {
+  <<<<<<< fix/tun-62
+
+    // Default values
+    if (centrOffset) *centrOffset=-1;
+    if (zip64offs) *zip64offs=-1;
+
+    CSHandle *fh=[self handle];
+    [fh seekToEndOfFile];
+    off_t end=[fh offsetInFile];
+
+    // TODO: There should be another way of correctly searching signature for zip file
+    // 1MB in memory is not always a good idea
+    // This is a question whether Central Directory Record can be farther than this
+    int numbytes=0x100000;
+    if(numbytes>end) numbytes=(int)end;
+
+    uint8_t buf[numbytes];
+
+    [fh skipBytes:-numbytes];
+    [fh readBytes:numbytes toBuffer:buf];
+    int pos=numbytes-4;
+
+    // Find end of central directory record
+    while(pos>=0)
+    {
+        if(buf[pos]=='P'&&buf[pos+1]=='K'&&buf[pos+2]==5&&buf[pos+3]==6) break;
+        pos--;
+    }
+
+
+    if (pos < 0) {
+        return;
+    }
+
+    if (centrOffset) *centrOffset=end-numbytes+pos;
+
+    // Found a zip64 end of central directory locator.
+
+    if(pos>=20 && buf[pos-20]=='P' && buf[pos-19]=='K' && buf[pos-18]==6 && buf[pos-17]==7)
+    {
+        if (zip64offs) *zip64offs=end-numbytes+pos-20;
+    }
+}
+
+
+  =======
     // Default values
     if (centrOffset) *centrOffset=-1;
     if (zip64offs) *zip64offs=-1;
@@ -186,6 +232,7 @@
 }
 
 
+  >>>>>>> master
 -(void)parseWithSeparateMacForks
 {
     off_t centraloffs = -1;
